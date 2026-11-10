@@ -1,0 +1,42 @@
+# environment and secrets
+.env
+.env.*
+!.env.example
+
+# dependencies
+node_modules/
+
+# build outputs
+dist/
+dist-ssr/
+web-build/
+
+# expo
+.expo/
+expo-env.d.ts
+
+# logs
+logs/
+*.log
+npm-debug.log*
+
+# editor and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# native build files
+.kotlin/
+*.jks
+*.keystore
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# typescript
+*.tsbuildinfo
+
+.claude/
+AGENTS.md

@@ -537,116 +537,112 @@ function Appointments() {
                 </tr>
               </thead>
 
-              <tbody>
-                {appointments.map((appointment) => (
-                  <tr key={appointment._id}>
-                    <td>
-                      <span className="token-number">
-                        #{appointment.tokenNumber}
-                      </span>
-                    </td>
+              
+<tbody>
+  {appointments.map((appointment) => (
+    <tr key={appointment._id}>
+      <td data-label="Token">
+        <span className="token-number">
+          #{appointment.tokenNumber}
+        </span>
+      </td>
 
-                    <td>
-                      <div className="table-person">
-                        <div className="table-icon">
-                          <User size={16} />
-                        </div>
+      <td data-label="Patient">
+        <div className="table-person">
+          <div className="table-icon">
+            <User size={16} />
+          </div>
 
-                        <div>
-                          <strong>
-                            {appointment.patient?.name || "Unknown patient"}
-                          </strong>
-                          <span>
-                            {appointment.patient?.email ||
-                              appointment.patient?.phone ||
-                              "No contact details"}
-                          </span>
-                        </div>
-                      </div>
-                    </td>
-
-                    <td>
-                      <div className="table-person">
-                        <div className="table-icon">
-                          <Stethoscope size={16} />
-                        </div>
-
-                        <div>
-                          <strong>
-                            {appointment.doctor?.name || "Unknown doctor"}
-                          </strong>
-                          <span>
-                            {appointment.doctor?.specialization ||
-                              "No specialization"}
-                          </span>
-                        </div>
-                      </div>
-                    </td>
-
-                    <td>
-                      <div className="date-info">
-                        <CalendarCheck size={16} />
-                        {formatDate(appointment.appointmentDate)}
-                      </div>
-                    </td>
-
-                    <td>
-                      <span className={`source-badge ${appointment.source}`}>
-                        {appointment.source === "walk-in"
-                          ? "Walk-in"
-                          : "Online"}
-                      </span>
-                    </td>
-
-                    <td>
-                      <span
-                        className={`status-badge status-${appointment.status}`}
-                      >
-                        {appointment.status}
-                      </span>
-                    </td>
-
-                    <td>
-                      <select
-                        className="status-select"
-                        value={appointment.status}
-                        disabled={updatingId === appointment._id}
-                        onChange={(event) =>
-                          updateStatus(appointment._id, event.target.value)
-                        }
-                      >
-                        <option value="waiting">Waiting</option>
-                        <option value="called">Called</option>
-                        <option value="completed">Completed</option>
-                        <option value="no-show">No-show</option>
-                        <option value="cancelled">Cancelled</option>
-                      </select>
-                    </td>
-
-                    <td>
-                      <button
-                        className="delete-appointment-btn"
-                        onClick={() => deleteAppointment(appointment._id)}
-                        disabled={
-                          deletingId === appointment._id ||
-                          updatingId === appointment._id
-                        }
-                      >
-                        <Trash2 size={15} />
-                        {deletingId === appointment._id
-                          ? "Deleting..."
-                          : "Delete"}
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div>
+            <strong>
+              {appointment.patient?.name || "Unknown patient"}
+            </strong>
+            <span>
+              {appointment.patient?.email ||
+                appointment.patient?.phone ||
+                "No contact details"}
+            </span>
           </div>
         </div>
-      )}
-    </div>
-  );
+      </td>
+
+      <td data-label="Doctor">
+        <div className="table-person">
+          <div className="table-icon">
+            <Stethoscope size={16} />
+          </div>
+
+          <div>
+            <strong>
+              {appointment.doctor?.name || "Unknown doctor"}
+            </strong>
+            <span>
+              {appointment.doctor?.specialization ||
+                "No specialization"}
+            </span>
+          </div>
+        </div>
+      </td>
+
+      <td data-label="Date">
+        <div className="date-info">
+          <CalendarCheck size={16} />
+          {formatDate(appointment.appointmentDate)}
+        </div>
+      </td>
+
+      <td data-label="Source">
+        <span className={`source-badge ${appointment.source}`}>
+          {appointment.source === "walk-in" ? "Walk-in" : "Online"}
+        </span>
+      </td>
+
+      <td data-label="Status">
+        <span className={`status-badge status-${appointment.status}`}>
+          {appointment.status}
+        </span>
+      </td>
+
+      <td data-label="Update">
+        <select
+          className="status-select"
+          value={appointment.status}
+          disabled={updatingId === appointment._id}
+          onChange={(event) =>
+            updateStatus(appointment._id, event.target.value)
+          }
+        >
+          <option value="waiting">Waiting</option>
+          <option value="called">Called</option>
+          <option value="completed">Completed</option>
+          <option value="no-show">No-show</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </td>
+
+      <td data-label="Delete">
+        <button
+          className="delete-appointment-btn"
+          onClick={() => deleteAppointment(appointment._id)}
+          disabled={
+            deletingId === appointment._id ||
+            updatingId === appointment._id
+          }
+        >
+          <Trash2 size={15} />
+          {deletingId === appointment._id ? "Deleting..." : "Delete"}
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
+
+</table>
+</div>
+</div>
+)}
+</div>
+);
 }
 
 export default Appointments;

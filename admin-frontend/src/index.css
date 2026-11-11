@@ -1795,3 +1795,94 @@ button {
   }
 }
 
+/* style */
+/* mobile appointments cards */
+@media (max-width: 700px) {
+  .appointments-page {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .appointments-card {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .appointments-table-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .appointments-table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    table-layout: auto;
+  }
+
+  .appointments-table thead {
+    display: none;
+  }
+
+  .appointments-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .appointments-table tbody tr {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e5ebed;
+    border-radius: 10px;
+    background: white;
+    box-sizing: border-box;
+  }
+
+  .appointments-table tbody td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 0;
+    border-bottom: 1px solid #edf0f1;
+    border-top: none;
+    text-align: right;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  .appointments-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #16324F;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .appointments-table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .appointments-table .table-person {
+    min-width: 0;
+    max-width: 65%;
+  }
+
+  .appointments-table .date-info {
+    text-align: right;
+  }
+
+  .appointments-table .status-select {
+    width: 130px;
+    max-width: 100%;
+  }
+
+  .appointments-table .delete-appointment-btn {
+    margin-left: auto;
+  }
+}

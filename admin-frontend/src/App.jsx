@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Doctors from "./pages/Doctors";
 import Appointments from "./pages/Appointments";
-import Patients from "./pages/Patients";
+import Patients from "./pages/Patients.jsx";
 import Queue from "./pages/Queue.jsx";
 import Settings from "./pages/Settings.jsx";
 import FutureEnhancements from "./pages/FutureEnhancements";
@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route
           path="/login"
-          element={<Login onLogin={() => setIsLoggedIn(true)} />}
+          element={<Login setIsLoggedIn={setIsLoggedIn} />}
         />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>

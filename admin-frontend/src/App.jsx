@@ -18,6 +18,8 @@ function App() {
     Boolean(localStorage.getItem("adminToken"))
   );
 
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+
   if (!isLoggedIn) {
     return (
       <Routes>
@@ -32,7 +34,25 @@ function App() {
 
   return (
     <div className="app-layout">
-      <Sidebar onLogout={() => setIsLoggedIn(false)} />
+      <button
+        className="mobile-menu-button"
+        onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+      >
+        ☰
+      </button>
+
+      <div
+        className={`mobile-sidebar-overlay ${
+          mobileSidebarOpen ? "show" : ""
+        }`}
+        onClick={() => setMobileSidebarOpen(false)}
+      />
+
+      <Sidebar
+        isOpen={mobileSidebarOpen}
+        onClose={() => setMobileSidebarOpen(false)}
+        onLogout={() => setIsLoggedIn(false)}
+      />
 
       <div className="main-section">
         <Topbar />

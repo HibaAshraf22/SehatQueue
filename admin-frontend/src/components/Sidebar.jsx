@@ -1,3 +1,4 @@
+
 import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
@@ -7,10 +8,11 @@ import {
   ListOrdered,
   Settings,
   LogOut,
-  HeartPulse
+  HeartPulse,
+  X
 } from "lucide-react";
 
-function Sidebar() {
+function Sidebar({ isOpen, onClose }) {
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
     window.location.href = "/login";
@@ -26,15 +28,20 @@ function Sidebar() {
   ];
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? "mobile-open" : ""}`}>
       <div className="brand">
         <div className="brand-icon">
           <HeartPulse size={25} />
         </div>
+
         <div>
           <h2>SehatQueue</h2>
           <span>ADMIN PANEL</span>
         </div>
+
+        <button className="mobile-sidebar-close" onClick={onClose}>
+          <X size={22} />
+        </button>
       </div>
 
       <div className="sidebar-label">MAIN MENU</div>
@@ -48,6 +55,7 @@ function Sidebar() {
               to={item.path}
               key={item.name}
               end={item.path === "/"}
+              onClick={onClose}
               className={({ isActive }) =>
                 isActive ? "nav-item active" : "nav-item"
               }

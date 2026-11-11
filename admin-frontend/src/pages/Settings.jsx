@@ -8,7 +8,7 @@ import {
   Hospital
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://sehat-queue.vercel.app";
 
 function Settings() {
   const [hospital, setHospital] = useState(null);

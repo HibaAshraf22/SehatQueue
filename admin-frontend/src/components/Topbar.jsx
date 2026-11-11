@@ -12,7 +12,7 @@ import {
   Clock
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://sehat-queue.vercel.app";
 
 function Topbar() {
   const [search, setSearch] = useState("");

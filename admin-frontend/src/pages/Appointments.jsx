@@ -10,7 +10,7 @@ import {
   X
 } from "lucide-react";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://sehat-queue.vercel.app";
 const HOSPITAL_ID = "6ae1e0982680c6ba837e0f45";
 
 const getTodayDate = () => {
